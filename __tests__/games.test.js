@@ -40,6 +40,7 @@ describe('backend routes', () => {
     const res = await request(app).get(`/api/v1/games/${game.id}`);
     expect(res.body).toEqual(game);
   });
+
   it('should update game', async () => {
     const game = await Game.insert({
       title: 'Spider-Man',
@@ -57,6 +58,7 @@ describe('backend routes', () => {
     expect(res.body).toEqual(expectedgame);
     expect(await Game.getById(game.id)).toEqual(expectedgame);
   });
+
   it('should delete', async () => {
     const game = await Game.insert({
       title: 'Spider-Man',
